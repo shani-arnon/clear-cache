@@ -1,4 +1,4 @@
-const fs = require("fs");
+import fs from "fs";
 const filePath = "./package.json";
 
 const packageJson = JSON.parse(fs.readFileSync(filePath).toString());
@@ -12,7 +12,7 @@ const jsonData = {
 
 const jsonContent = JSON.stringify(jsonData);
 
-fs.writeFile("./public/meta.json", jsonContent, "utf8", function (error) {
+fs.writeFile("./data/meta.json", jsonContent, "utf8", function (error) {
   if (error) {
     console.log(
       "An error occured while saving build date and time to meta.json"

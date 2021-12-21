@@ -5,10 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "build": "node ./update-build"
   },
   "keywords": [],
-  "author": "Yariv Gilad",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
@@ -16,5 +16,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "buildDate": 1640104467936
 }
