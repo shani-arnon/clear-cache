@@ -1,24 +1,8 @@
-import fs from "fs";
-const filePath = "./package.json";
+import fs from "fs/promises";
 
-const packageJson = JSON.parse(fs.readFileSync(filePath).toString());
-packageJson.buildDate = new Date().getTime();
-
-fs.writeFileSync(filePath, JSON.stringify(packageJson, null, 2));
-
-const jsonData = {
-  buildDate: packageJson.buildDate
-};
-
-const jsonContent = JSON.stringify(jsonData);
-
-fs.writeFile("./data/meta.json", jsonContent, "utf8", function (error) {
-  if (error) {
-    console.log(
-      "An error occured while saving build date and time to meta.json"
-    );
-    return console.log(error);
-  }
-
+(async () => {
+  const buildDate = Date.now();
+  const jsonContent = JSON.stringify({ buildDate });
+  await fs.writeFile("./data/meta.json", jsonContent, "utf8");
   console.log("Latest build date and time updated in meta.json file");
-});
+})().catch(console.log);

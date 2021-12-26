@@ -16,6 +16,5 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  },
-  "buildDate": 1640104467936
+  }
 }
